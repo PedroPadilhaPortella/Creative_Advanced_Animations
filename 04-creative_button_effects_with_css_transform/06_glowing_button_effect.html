@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing button effect</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: sans-serif;
+      font-size: 40px;
+      border: 3px solid white;
+      padding: 40px 80px;
+      position: relative;
+      transition: all 1s;
+      overflow: hidden;
+    }
+
+    a:hover {
+      background-color: #f44336;
+    }
+
+    a::before {
+      content: '';
+      height: 50%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: white;
+      transform: translateX(-100%) rotate(45deg);
+      transition: all 1s;
+    }
+
+    a:hover::before {
+      transform: translateX(100%) rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <a>Hover me</a>
+</body>
+</html>

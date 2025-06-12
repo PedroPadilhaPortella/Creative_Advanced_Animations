@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotating 3 layers button effect</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      background-color: #222;
+    }
+
+    a {
+      padding: 30px 60px;
+      background-color: #f1c40f;
+      color: white;
+      letter-spacing: 2px;
+      font-size:24px;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+    }
+
+    a::before {
+      content: 'button';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #2ce771;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateX(270deg);
+      transform-origin: top;
+      transition: all 0.3s;
+    }
+
+    a::after {
+      content: 'button';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateX(270deg);
+      transform-origin: bottom;
+      transition: all 0.3s;
+      transition-delay: 0.3s;
+    }
+
+    a:hover::before {
+      transform: rotateX(0deg);
+    }
+
+    a:hover::after {
+      transform: rotateX(0deg);
+    }
+  </style>
+</head>
+<body>
+  <a>button</a>
+</body>
+</html>

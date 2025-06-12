@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splited button effect</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: verdana, sans-serif;
+      background-color: #222;
+    }
+
+    a {
+      font-size: 25px;
+      color: #f6b93d;
+      padding: 25px 50px;
+      text-decoration: none;
+      text-transform: uppercase;
+      border: 3px solid #f6b93d;
+      position: relative;
+      transition: all 0.5s;
+      overflow: hidden;
+    }
+
+    a:hover {
+      color: #222;
+    }
+
+    a:before,
+    a:after,
+    span:before,
+    span:after {
+      content: '';
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: #f6b93d;
+      z-index: -1;
+      transition: all 0.5s;
+    }
+
+    a:before {
+      top: 100%;
+      left: 0%;
+    }
+
+    a:hover:before {
+      top: 0;
+      left: 0;
+    }
+
+    a:after {
+      top: -100%;
+      left: 25%;
+    }
+
+    a:hover:after {
+      top: 0;
+      left: 25%;
+      transition-delay: 0.1s;
+    }
+
+    span:before {
+      top: 100%;
+      right: 25%;
+    }
+
+    a:hover span:before {
+      top: 0;
+      right: 25%;
+      transition-delay: 0.2s;
+    }
+
+    span:after {
+      top: -100%;
+      right: 0;
+    }
+
+    a:hover span:after {
+      top: 0;
+      right: 0;
+      transition-delay: 0.3s;
+    }
+
+  </style>
+</head>
+<body>
+  <a>
+    <span>hover me</span>
+  </a>
+</body>
+</html>

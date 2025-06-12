@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circular swapping button effect</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    .btn {
+      border: 2px solid tomato;
+      background: none;
+      color: tomato;
+      padding: 20px 40px;
+      font-size: 24px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.5s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: tomato;
+      z-index: -1;
+      border-radius: 0 0 50% 50%;
+      width: 100%;
+      height: 0%;
+      transition: all 0.5s;
+    }
+
+    .btn:hover {
+      color: white;
+    }
+
+    .btn:hover::before {
+      height: 200%;
+    }
+  </style>
+</head>
+<body>
+  <button class="btn">Click me</button>
+</body>
+</html>

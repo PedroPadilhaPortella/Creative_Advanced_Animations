@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2 cuts button effect</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      width: 160px;
+      height: 60px;
+      color: black;
+      line-height: 60px;
+      text-align: center;
+      text-transform: capitalize;
+      font-size: 25px;
+      position: relative;
+      transition: all 0.2s;
+      overflow: hidden;
+    }
+
+    a span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: transparent;
+      border: 2px solid black;
+      z-index: -1;
+    }
+
+    span:before {
+      content: '';
+      position: absolute;
+      width: 8%;
+      height: 500%;
+      top: 50%;
+      left: 50%;
+      background-color: white;
+      transform: translate(-50%, -50%) rotate(-60deg);
+      transition: all 0.5s;
+    }
+
+    a:hover span:before {
+      width: 100%;
+      background-color: black;
+      transform: translate(-50%, -50%) rotate(60deg);
+    }
+
+    a:hover {
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <a>
+    button
+    <span></span>
+  </a>
+</body>
+</html>
