@@ -31,9 +31,9 @@ const capitalize = (word) => {
 
 const projectsList = document.querySelector('.project-list');
 
-renderButtonEffectProjects();
+renderProjects();
 
-function renderButtonEffectProjects() {
+function renderProjects() {
 
   projects.forEach((project) => {
     const projectData = project.split('_');

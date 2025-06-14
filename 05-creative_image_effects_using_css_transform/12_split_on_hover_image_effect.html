@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split on hover image effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background-color: #262626;
+    }
+
+    .box {
+      width: 600px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about {
+      padding: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .about h2 {
+      margin: 0;
+      padding: 0;
+      font-size: 30px;
+      text-transform: uppercase;
+    }
+
+    .figure {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .figure:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75%;
+      height: 100%;
+      background: url(reichstag.jpg) no-repeat left center;
+      background-size: cover;
+      transition: 0.5s;
+      transform-origin: bottom;
+      transform: translateX(-134px); 
+    }
+
+    .box:hover .figure:before {
+      transform: translateY(5%) rotateX(90deg) translateX(-134px);
+    }
+
+    .figure:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 75%;
+      height: 100%;
+      background: url(reichstag.jpg) no-repeat right center;
+      background-size: cover;
+      transition: 0.5s;
+      transform-origin: top;
+      transform: translateX(134px);
+    }
+
+    .box:hover .figure:after {
+      transform: translateY(-5%) rotateX(90deg) translateX(134px);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="about">
+      <h2>The Reichstag</h2>
+      <p>O Reichstag é um dos mais imponentes edifícios de Berlim. Localizado ao lado do Rio Spree, ele abriga o Parlamento Alemão (Bundestag) e foi palco de importantes decisões e momentos da história política alemã.</p>
+    </div>
+    <div class="figure">
+
+    </div>
+  </div>
+</body>
+</html>
