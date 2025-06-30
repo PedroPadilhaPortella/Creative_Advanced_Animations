@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scale in and out button effect</title>
+  <title>Spinning fade button effect</title>
   <style>
     body {
       margin: 0;
@@ -26,11 +26,12 @@
     .container img {
       width: 100%;
       transition: all 0.5s;
-      transition-delay: 0.8s;
+      transition-delay: 0.6s;
     }
 
     .container:hover img {
-      transform: scale(0);
+      transform: rotate(720deg) scale(0);
+      opacity: 0;
       transition-delay: 0s;
     }
 
@@ -42,14 +43,13 @@
       width: 100%;
       height: 100%;
       background-color: #006266;
-      opacity: 0.8;
-      transform: scale(0) rotate(-180deg);
-      transition: all 0.5s;
-      transition-delay: 0.4s;
+      opacity: 0;
+      transition: all 0.3s;
+      transition-delay: 0.5s;
     }
     
     .container:hover:before {
-      transform: scale(1) rotate(0deg);
+      opacity: 1;
       transition-delay: 0.5s;
     }
 
@@ -91,26 +91,44 @@
       text-align: center;
     }
 
-    .caption h2,
-    .caption p,
-    .caption a {
-      opacity: 0;
-      transition: all 0.5s;
+    .caption h2 {
+      transform: translateY(-300px);
+      transition: all 0.2s;
     }
 
-    .container:hover .caption h2,
-    .container:hover .caption p,
-    .container:hover .caption a {
-      opacity: 1;
+    .container:hover .caption h2 {
+      transform: translateY(0);
       transition-delay: 1s;
+    }
+
+    .caption p {
+      transform: translateY(-300px);
+      transition: all 0.2s;
+      transition-delay: 0.2s;
+    }
+
+    .container:hover .caption p {
+      transform: translateY(0);
+      transition-delay: 0.8s;
+    }
+    
+    .caption a {
+      transform: translateY(-300px);
+      transition: all 0.2s;
+      transition-delay: 0.4s;
+    }
+
+    .container:hover .caption a {
+      transform: translateY(0);
+      transition-delay: 0.6s;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="disc.jpg">
+    <img src="./images/disc.jpg">
     <div class="caption">
-      <h2>hover style #2</h2>
+      <h2>hover style #5</h2>
       <p>You can write something here</p>
       <a>Read more</a>
     </div>

@@ -43,7 +43,7 @@ function renderProjects() {
     card.classList.add('project-card');
 
     card.innerHTML = `
-      <a href="04-creative_button_effects_with_css_transform/${project}.html">
+      <a href="04-creative_button_effects/${project}.html">
         <p>${id} - ${projectData.map(capitalize).join(' ')}</p>
         <p><span>View Projects</span> <i class="fas fa-arrow-right"></i></p>
       </a>
