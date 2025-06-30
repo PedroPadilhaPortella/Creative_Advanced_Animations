@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2 moving bottom borders menu effect</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: verdana;
+    }
+
+    ul {
+      padding: 0;
+      display: flex;
+    }
+
+    li {
+      list-style-type: none;
+      padding: 10px 20px;
+    }
+
+    a {
+      color: #222;
+      font-size: 20px;
+      text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    li a:before {
+      content: '';
+      height: 5px;
+      width: 0;
+      background-color: #00bcd4;
+      position: absolute;
+      top: 120%;
+      left: 0;
+      transition: all 0.5s;
+    }
+    
+    li a:after {
+      content: '';
+      width: 0;
+      height: 5px;
+      background-color: #f0f;
+      position: absolute;
+      top: 120%;
+      right: 0;
+      transition: all 0.5s;
+    }
+
+    li a:hover:before {
+      width: 50%;
+      transform: translateX(100%);
+    }
+    
+    li a:hover::after {
+      width: 50%;
+      transform: translateX(-100%);
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a>home</a></li>
+    <li><a>about</a></li>
+    <li><a>services</a></li>
+    <li><a>portfolio</a></li>
+    <li><a>contact</a></li>
+  </ul>
+</body>
+</html>

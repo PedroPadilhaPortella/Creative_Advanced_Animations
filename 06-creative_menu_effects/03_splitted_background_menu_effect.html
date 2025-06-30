@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splitted background menu effect</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+    }
+
+    a {
+      display: block;
+      width: 120px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: red;
+      text-transform: capitalize;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.5s;
+    }
+
+    span {
+      position: absolute;
+      width: 25%;
+      height: 100%;
+      background-color: #262626;
+      z-index: -1;
+      left: 0;
+      top: 0;
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: all 0.5s;
+    }
+
+    span:nth-child(2) {
+      left: 25%;
+      transition-delay: 0.1s;
+    }
+
+    span:nth-child(3) {
+      left: 50%;
+      transition-delay: 0.2s;
+    }
+    span:nth-child(4) {
+      left: 75%;
+      transition-delay: 0.3s;
+    }
+
+    a:hover span {
+      transform: scaleY(1);
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a>
+      home
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a></li>
+    <li><a>
+      about
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a></li>
+    <li><a>
+      services
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a></li>
+    <li><a>
+      portfolio
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a></li>
+    <li><a>
+      contact
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </a></li>
+  </ul>
+</body>
+</html>
