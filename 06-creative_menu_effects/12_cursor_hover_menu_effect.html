@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cursor hover menu effect</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial;
+    }
+
+    ul {
+      position: relative;
+    }
+
+    li {
+      list-style: none;
+      text-align: center;
+    }
+
+    li a {
+      color: #333;
+      text-decoration: none;
+      font-size: 3em;
+      padding: 5px 20px;
+      display: inline-flex;
+      font-weight: 700;
+      transition: 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a data-text="Home">Home</a></li>
+    <li><a data-text="About">About</a></li>
+    <li><a data-text="Services">Services</a></li>
+    <li><a data-text="Portfolio">Portfolio</a></li>
+    <li><a data-text="Contact">Contact</a></li>
+  </ul>
+</body>
+</html>
