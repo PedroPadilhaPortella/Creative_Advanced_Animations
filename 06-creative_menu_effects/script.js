@@ -9,6 +9,9 @@ const projects = [
   "08_sniper_menu_effect",
   "09_rotation_menu_effect",
   "10_colorful_layered_menu_effect",
+  "11_background_color_menu_effect",
+  "12_cursor_hover_menu_effect",
+  "13_text_fading_menu_effect",
 ];
 
 const capitalize = (word) => {
