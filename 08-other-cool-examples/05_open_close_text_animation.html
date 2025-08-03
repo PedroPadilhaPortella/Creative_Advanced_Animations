@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open - Close text animation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Just Another Hand';
+      overflow: hidden;
+      background-color: #9b59b6;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      font-size: 10em;
+      display: flex;
+      color: white;
+      cursor: pointer;
+    }
+
+    li {
+      list-style: none;
+      transition: 0.5s;
+    }
+
+    ul:hover li {
+      transform: rotate(180deg);
+    }
+
+    ul:hover li:last-child {
+      transform: rotate(180deg);
+      transition-delay: 0.5s;
+    }
+
+    li span {
+      display: inline-block;
+      transition: 0.5s;
+    }
+
+    ul:hover li:last-child span:nth-child(2) {
+      transform: rotate(180deg);
+      transition-delay: 1s;
+    }
+
+    ul:hover li:last-child span:nth-child(1) {
+      transform: rotate(90deg) translate(-5px, 15px) scalex(1.2);
+      transition-delay: 1.5s;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li>clo</li>
+    <li><span>s</span><span>e</span></li>
+  </ul>
+</body>
+</html>

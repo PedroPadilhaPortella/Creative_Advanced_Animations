@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap">
+  <title>Text clip mask parallax scrolling effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      outline: none;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 0;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 24vw;
+      text-transform: uppercase;
+      font-weight: 900;
+      line-height: 1em;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-attachment: fixed;
+    }
+
+    section:nth-child(1) h2 {
+      background-image: url(./images/paris.avif);
+      background-size: cover;
+    }
+    section:nth-child(2) h2 {
+      background-image: url(./images/moscow.avif);
+      background-size: cover;
+    }
+
+    section:nth-child(3) h2 {
+      background-image: url(./images/budapest.jpg);
+      background-size: cover;
+    }
+
+    section:nth-child(4) h2 {
+      background-image: url(./images/prague.jpg);
+      background-size: cover;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    section a {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid black;
+      text-decoration: none;
+      color: black;
+      margin-top: 20px;
+      text-transform: capitalize;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div class="content">
+      <h2>paris</h2>
+      <p>Paris, the capital of France, is renowned for its beauty, culture, and history. Known as the "City of Light", it has been a global center for art, fashion, and philosophy for centuries. Iconic landmarks like the Eiffel Tower, Notre-Dame Cathedral, and the Louvre Museum draw millions of visitors each year. The city’s charming streets, lined with cafés and boutiques, embody a unique romantic atmosphere. Paris sits along the River Seine, offering stunning views and vibrant life along its banks. From world-class cuisine to rich historical heritage, Paris continues to inspire and captivate travelers from all corners of the globe.</p>
+      <a href="">Read more</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="content">
+      <h2>moscow</h2>
+      <p>Moscow, the capital of Russia, is a city where grandeur, history, and modernity meet. Dominated by the colorful domes of Saint Basil’s Cathedral and the imposing walls of the Kremlin, Red Square serves as the heart of its rich heritage. The city boasts impressive architecture, from opulent metro stations to Soviet-era monuments and sleek contemporary skyscrapers. Landmarks like the Bolshoi Theatre and GUM department store add cultural and commercial allure. Moscow’s broad avenues, museums, and vibrant nightlife reflect its dynamic spirit. Blending centuries-old tradition with a modern urban pulse, it stands as one of the world’s most fascinating and majestic capitals.</p>
+      <a href="">Read more</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="content">
+      <h2>buda pest</h2>
+      <p>Budapest, the capital of Hungary, is a city of striking beauty and rich history, divided by the majestic Danube River into the historic Buda and vibrant Pest. Known as the “Pearl of the Danube,” it offers a stunning mix of architectural styles, from Gothic and Baroque to Art Nouveau. Iconic landmarks include the Parliament Building, Buda Castle, and the Chain Bridge, each illuminated beautifully at night. Budapest is also famous for its thermal baths, lively ruin pubs, and panoramic views from Gellért Hill. Combining old-world charm with modern energy, the city captivates visitors with its elegance, culture, and welcoming atmosphere.</p>
+      <a href="">Read more</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="content">
+      <h2>prague</h2>
+      <p>Prague, the capital of the Czech Republic, is often called the “City of a Hundred Spires” for its breathtaking skyline filled with historic towers and church domes. Nestled along the Vltava River, the city boasts a stunning blend of Gothic, Baroque, and Renaissance architecture. Landmarks such as Prague Castle, Charles Bridge, and the Astronomical Clock draw visitors from around the world. Its cobblestone streets and charming squares create a fairy-tale atmosphere, especially in the Old Town. Known for its rich cultural heritage, vibrant café scene, and captivating history, Prague enchants travelers with a timeless beauty that feels both grand and intimate.</p>
+      <a href="">Read more</a>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sniper blur and focus text effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: monospace;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      min-height: 100vh;
+      background: linear-gradient(45deg, #0082ce, #ffd000);
+    }
+
+    h2 {
+      position: relative;
+      display: flex;
+      color: white;
+      font-size: 4em;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    h2 span {
+      position: relative;
+      filter: blur(5px);
+      transition: 0.5s;
+    }
+
+    h2 span:hover {
+      filter: blur(0);
+      transition: 0s;
+    }
+
+    h2 span i:before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 8px;
+      background-color: white;
+      top: 0;
+      left: -5px;
+      box-shadow: 0 53px white, 37px 53px white, 36px 0 white;
+      opacity: 0;
+    }
+
+    h2 span i::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 2px;
+      background-color: white;
+      top: 0;
+      left: -5px;
+      box-shadow: 0 60px white, 30px 60px white, 30px 0 white;
+      opacity: 0;
+    }
+
+    h2 span:hover i:before,
+    h2 span:hover i:after {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <h2><span><i>f</i></span></h2>
+  <h2><span><i>o</i></span></h2>
+  <h2><span><i>c</i></span></h2>
+  <h2><span><i>u</i></span></h2>
+  <h2><span><i>s</i></span></h2>
+</body>
+</html>
