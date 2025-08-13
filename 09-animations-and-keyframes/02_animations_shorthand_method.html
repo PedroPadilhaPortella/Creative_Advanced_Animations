@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animations introduction</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .container {
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      animation: moving 4s 2s both 3 ease-in-out alternate;
+    }
+
+    @keyframes moving {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      25% {
+        transform: translate(calc(100vw - 150px), 0);
+      }
+
+      50% {
+        transform: translate(calc(100vw - 150px), calc(100vh - 150px));
+      }
+
+      75% {
+        transform: translate(0, calc(100vh - 150px));
+      }
+
+      /* 
+      100% {
+        transform: translate(0, 0);
+      }
+      */
+    }
+  </style>
+</head>
+<body>
+  <div class="container"></div>
+</body>
+</html>
