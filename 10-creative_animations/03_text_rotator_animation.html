@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Rotator Animation</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ea2027;
+    }
+
+    h1 {
+      color: white;
+      font-size: 50px;
+    }
+
+    span:before {
+      content: '';
+      text-transform: capitalize;
+      font-family: Arial, sans-serif;
+      color: #1b1464;
+      animation: word-switch 3s infinite;
+    }
+
+    @keyframes word-switch {
+      0% {
+        content: 'transitions';
+      }
+
+      50% {
+        content: 'animations';
+      }
+
+      100% {
+        content: 'transforms';
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>
+    I love CSS <span></span>
+  </h1>
+</body>
+</html>

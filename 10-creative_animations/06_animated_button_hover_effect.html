@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated button hover effect</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #222;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-family: sans-serif;
+      font-size: 40px;
+      border: 3px solid white;
+      padding: 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    a:before {
+      content: '';
+      background-color: #f44336;
+      position: absolute;
+      top: 0;
+      left: -120px;
+      width: 120px;
+      height: 100%;
+      z-index: -1;
+      transform: skew(-15deg);
+      transition: all 0.5s;
+      animation: moving 1s linear infinite;
+    }
+
+    a:hover:before {
+      left: 0;
+      width: 100%;
+      transform: skew(0deg);
+      animation: none;
+    }
+
+    @keyframes moving {
+      from {
+        left: -120px;
+      }
+
+      to {
+        left: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a>Hover me</a>
+</body>
+</html>

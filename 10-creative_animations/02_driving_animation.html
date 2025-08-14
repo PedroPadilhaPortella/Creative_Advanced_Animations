@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driving Animation</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .background {
+      height: 100vh;
+      background: url(./images/background_city.jpg) no-repeat;
+      background-position: bottom left;
+      background-size: cover;
+      animation: background-scroll 20s linear infinite
+    }
+
+    .car {
+      position: absolute;
+      left: -300px;
+      bottom: -10px;
+      width: 220px;
+      animation: acceletare 5s linear infinite;
+      z-index: 1;
+    }
+
+    .motorbike {
+      position: absolute;
+      left: 700px;
+      bottom: 55px;
+      width: 100px;
+    }
+
+    @keyframes background-scroll {
+      from {
+        background-position: bottom left;
+      }
+
+      to {
+        background-position: bottom right;
+      }
+    }
+
+    @keyframes acceletare {
+      0% {
+        left: -300px;
+        bottom: -10px;
+      }
+
+      30% {
+        left: 300px;
+        bottom: -10px;
+      }
+
+      50% {
+        left: 600px;
+        bottom: -50px;
+      }
+
+      70% {
+        left: 800px;
+        bottom: -50px;
+      }
+
+      80% {
+        left: 950px;
+        bottom: -10px;
+      }
+      
+      100% {
+        left: calc(100vw + 300px);
+        bottom: -10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+  	<img src="./images/car.png" class="car">
+  	<img src="./images/motobike.png" class="motorbike">
+  </div>
+</body>
+</html>
