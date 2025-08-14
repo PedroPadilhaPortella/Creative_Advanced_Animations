@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lighting text animation</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #272727;
+      font-family: Lato, sans-serif;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    li {
+      list-style: none;
+      color: #484848;
+      font-size: 80px;
+      letter-spacing: 50px;
+      text-transform: uppercase;
+      animation: lighting 1.4s linear infinite;
+      animation-delay: calc(var(--i) * 0.1s);
+
+    }
+
+    @keyframes lighting {
+      0% {
+        color: #484848;
+        text-shadow: none;
+      }
+
+      90% {
+        color: #484848;
+        text-shadow: none;
+      }
+
+      100% {
+        color: #fff900;
+        text-shadow: 0 0 7px #fff900, 0 0 50px #ff6c00;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul>
+  <li style="--i:0">l</li>
+  <li style="--i:1">i</li>
+  <li style="--i:2">g</li>
+  <li style="--i:3">h</li>
+  <li style="--i:4">t</li>
+  <li style="--i:5">i</li>
+  <li style="--i:6">n</li>
+  <li style="--i:7">g</li>
+  </ul>
+</body>
+</html>
