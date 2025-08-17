@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Image Slider</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #272727;
+    }
+
+    .slider {
+      width: 800px;
+      height: 400px;
+      background: url(./images/slider-image-1.jpg);
+      animation: slider 12s linear infinite;
+    }
+
+    @keyframes slider {
+      0% {
+       background-image: url(./images/slider-image-1.jpg);
+      }
+      20% {
+       background-image: url(./images/slider-image-1.jpg);
+      }
+      25% {
+        background-image: url(./images/slider-image-2.jpg);
+      }
+      45% {
+        background-image: url(./images/slider-image-2.jpg);
+      }
+      50% {
+        background-image: url(./images/slider-image-3.jpg);
+      }
+      70% {
+        background-image: url(./images/slider-image-3.jpg);
+      }
+      75% {
+        background-image: url(./images/slider-image-4.jpg);
+      }
+      100% {
+        background-image: url(./images/slider-image-4.jpg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="slider"></div>
+</body>
+</html>

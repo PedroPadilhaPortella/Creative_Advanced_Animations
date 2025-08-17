@@ -8,7 +8,17 @@ const projects = [
   "07_animated_button_hover_effect",
   "08_lighting_text_animation",
   "09_heartbeat_animation",
-  "10_text_backgrounf_animation",
+  "10_text_background_animation",
+  "11_bouncing_balls_animation",
+  "12_raining_animation_effect",
+  "13_icon_hover_animation_effect",
+  "14_loading_text_animation",
+  "15_wavy_button_hover_effect",
+  "16_pulse_animation_effect",
+  "17_simple_image_slider",
+  "18_background_color_animation",
+  "19_newton_cradle_animation",
+  "20_colorful_loading_animation",
 ];
 
 const capitalize = (word) => {

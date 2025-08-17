@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wavy button hover effect</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background-color: #272727;
+    }
+
+    a {
+      text-decoration: none;
+      padding: 15px 30px;
+      color: #00aeff;
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border: 2px solid #00aeff;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+
+    .wave {
+      position: absolute;
+      top: calc(100% + 22px);
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #00aeff;
+      transition: all 1s;
+      z-index: -1;
+    }
+
+    .wave:before {
+      content: '';
+      position: absolute;
+      top: -22px;
+      left: 0;
+      width: 100%;
+      height: 22px;
+      background: url(./images/wave.png);
+      animation: wavy 0.5s linear infinite;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    a:hover .wave {
+      top: 0;
+    }
+
+    @keyframes wavy {
+      from {
+        background-position-x: 0;
+      }
+      
+      to {
+        background-position-x: 118px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="">
+    button
+    <div class="wave"></div>
+  </a>
+</body>
+</html>

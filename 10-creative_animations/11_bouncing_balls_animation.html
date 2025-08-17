@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouncing balls animation</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #272727;
+    }
+
+    ul {
+     margin: 0;
+     padding: 0;
+     display: flex;
+     border-bottom: 10px solid white;
+    }
+
+    li {
+      list-style: none;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      margin: 0 10px;
+      border-radius: 50%;
+      animation: jump 1s linear infinite;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+
+    @keyframes jump {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-150px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    } 
+  </style>
+</head>
+<body>
+  <ul>
+    <li style="--i:0"></li>
+    <li style="--i:1"></li>
+    <li style="--i:2"></li>
+    <li style="--i:3"></li>
+    <li style="--i:4"></li>
+  </ul>
+</body>
+</html>

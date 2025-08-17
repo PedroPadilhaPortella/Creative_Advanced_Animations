@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link  rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" crossorigin="anonymous"
+    integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns">
+  <title>Pulse animation effect</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #212121;
+    }
+
+    .pulse {
+      width: 100px;
+      height: 100px;
+      background-color: #58ea00;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 100px;
+      font-size: 48px;
+      position: relative
+    }
+
+    .pulse:before,
+    .pulse:after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: -20px;
+      right: -20px;
+      bottom: -20px;
+      border: 1px solid #58ea00;
+      border-radius: 50%;
+      animation: pulse 1.5s linear infinite;
+    }
+
+    .pulse:after {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1.2);
+        opacity: 0;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="pulse">
+    <i class="fas fa-phone"></i>
+  </div>
+</body>
+</html>
