@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ring Rotation Loading Animation</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background-color: #222d3e;
+    }
+
+    .loader {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+
+    .outer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 5px solid transparent;
+      border-left: 5px solid #eb4d4b;
+      border-right: 5px solid #eb4d4b;
+      border-radius: 50%;
+      animation: loading 1s linear infinite;
+    }
+
+    .middle {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      right: 30px;
+      bottom: 30px;
+      border: 5px solid transparent;
+      border-left: 5px solid #218c74;
+      border-right: 5px solid #218c74;
+      border-radius: 50%;
+      animation: loading 1s linear infinite reverse;
+    }
+
+    .inner {
+      position: absolute;
+      top: 60px;
+      left: 60px;
+      right: 60px;
+      bottom: 60px;
+      border: 5px solid transparent;
+      border-left: 5px solid #ccae62;
+      border-right: 5px solid #ccae62;
+      border-radius: 50%;
+      animation: loading 1s linear infinite;
+    }
+
+    .dot {
+      position: absolute;
+      top: 90px;
+      left: 90px;
+      right: 90px;
+      bottom: 90px;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    @keyframes loading {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="outer"></div>
+    <div class="middle"></div>
+    <div class="inner"></div>
+    <div class="dot"></div>
+  </div>
+</body>
+</html>

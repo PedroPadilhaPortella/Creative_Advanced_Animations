@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Reveal Loading Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #2c3a47;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      margin: 0;
+      padding: 0;
+      color: white;
+      font-size: 40px;
+      letter-spacing: 10px;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    h1:before {
+      content: 'loading...';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0%;
+      color: #f8b94b;
+      overflow: hidden;
+      border-right: 4px solid #f8b94b;
+      animation: loading 2s linear infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        width: 0;
+      }
+
+      50% {
+        width: 100%;
+      }
+
+      100% {
+        width: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>loading...</h1>
+</body>
+</html>
