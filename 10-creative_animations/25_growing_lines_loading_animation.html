@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Growing Lines Loading Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #212121;
+    }
+
+    .loading {
+      display: flex;
+      gap: 6px;  
+    }    
+
+    .line {
+      width: 6px;
+      height: 40px;
+      background-color: white;
+      border-radius: 10px;
+      animation: loading 0.8s linear infinite;
+      animation-delay: calc(var(--i) * 0.1s);
+    }
+
+    @keyframes loading {
+      0% {
+        transform: scaleY(0);
+      }
+
+      50% {
+       transform: scaleY(1);
+      }
+
+      100% {
+        transform: scaleY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading"></div>
+</body>
+<script>
+  function createLoadingLines() {
+    const loading = document.querySelector('.loading');
+    
+    for (let i = 0; i < 8; i++) {
+      const line = document.createElement('div');
+
+      line.classList.add('line');
+      line.style = `--i: ${i}`;
+
+      loading.appendChild(line);
+    }
+  }
+
+  createLoadingLines();
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Loading Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      background-color: #272727;
+    }
+
+    .loading {
+      display: flex;
+    }
+
+    .loading .line {
+      width: 10px;
+      height: 80px;
+      margin: 0px 1px;
+      position: relative;
+      background-color: white;
+      animation: loading 0.8s ease-in-out infinite;
+    }
+
+    @keyframes loading {
+      0% {
+        transform: scaleY(0.1);
+      }
+
+      35% {
+        transform: scaleY(1);
+      }
+
+      60%, 100% {
+        transform: scaleY(0.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading"></div>
+</body>
+<script>
+  function generateColor() {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }
+
+  function createLines() {
+    const Loading = document.querySelector('.loading');
+
+    for (let i = 0; i < 8; i++) {
+      const line = document.createElement('span');
+      
+      line.classList.add('line');
+      line.style.backgroundColor = generateColor();
+      line.style.animationDelay = `${i * 0.1}s`;
+
+      Loading.appendChild(line);
+    }
+  }
+
+  createLines();
+</script>
+</html>

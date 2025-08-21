@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Moving Boxes Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #333;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-transform: uppercase;
+      font-size: 45px;
+      border-top: 5px solid white;
+      border-bottom: 5px solid white;
+    }
+
+    .square {
+      position: absolute;
+      bottom: -150px;
+      background-color: #f2f2f2;
+      animation: move 10s linear infinite;
+    }
+
+    @keyframes move {
+      0% {
+        bottom: -100px;
+      }
+
+      100% {
+        bottom: 100%;
+        transform: rotate(180deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text">Background Animation</div>
+  </div>
+</body>
+<script>
+  function generateSquares(quantity) {
+    const container = document.querySelector('.container');
+
+    for (let i = 0; i < quantity; i++) {
+      const square = document.createElement('div');
+      
+      square.classList.add('square');
+
+      // Random size (50–100px)
+      const size = Math.floor(Math.random() * 51) + 50;
+      square.style.width = `${size}px`;
+      square.style.height = `${size}px`;
+
+      // Random horizontal position (0%–100%)
+      const left = Math.random() * 100;
+      square.style.left = `${left}%`;
+
+      // Random animation delay (0–10s)
+      const delay = Math.random() * 10;
+      square.style.animationDelay = `${delay}s`;
+
+      container.appendChild(square);
+    }
+  }
+
+  generateSquares(10);
+</script>
+</html>

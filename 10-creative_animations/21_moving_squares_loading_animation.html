@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moving Squares Loading Animation</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ee5352;
+    }
+
+    .loading {
+      width: 150px;
+      height: 150px;
+      position: relative;
+    }
+
+    .loading span {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-color: white;
+      border-radius: 4px;
+      animation: chasing 2s linear infinite;
+    }
+
+    .loading span:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+
+    .loading span:nth-child(3) {
+      animation-delay: 1.4s;
+    }
+
+    @keyframes chasing {
+      0% { top: 0;  left: 0; }
+
+      12.5% { top: 0;  left: 50%; }
+
+      25% { top: 0;  left: 50%; }
+
+      37.5% { top: 50%;  left: 50%; }
+
+      50% { top: 50%;  left: 50%; }
+
+      62.5% { top: 50%; left: 0; }
+
+      75% { top: 50%; left: 0; }
+
+      87.5% { top: 0; left: 0; }
+
+      100% { top: 0; left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</body>
+</html>
