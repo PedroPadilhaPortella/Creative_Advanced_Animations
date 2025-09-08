@@ -29,6 +29,10 @@ const projects = [
   "28_color_loading_animation",
   "29_background_moving_boxes_animation",
   "30_hexagon_loading_animation",
+  "31_expanding_line_menu_effect",
+  "32_background_growing_boxes_animation",
+  "33_colorful_liquid_glass_animation",
+  "34_fancy_border_loading_animation",
 ];
 
 const capitalize = (word) => {
