@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Growing Boxes Animation</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:700");
+    body {
+      font-family: "Montserrat", sans-serif;
+      background-color: #192a56;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h2 {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 45px;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .box {
+      position: absolute;
+      bottom: 80%;
+      left: 45%;
+      width: 10px;
+      height: 10px;
+      border: 1px solid;
+      transform: scale(0);
+      animation: growAndRotate 10s linear infinite;
+    }
+
+    @keyframes growAndRotate {
+      0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(20) rotate(960deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Background Animation</h2>
+  </div>
+</body>
+<script>
+  function generateColor() {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }
+
+  function getRandomPercent() {
+    return Math.random() * 80 + 10;
+  }
+  
+  function generateSquares(quantity) {
+    const container = document.querySelector('.container');
+
+    for (let i = 0; i < quantity; i++) {
+      const box = document.createElement('div');
+      
+      box.classList.add('box');
+
+      box.style.left = getRandomPercent() + "%";
+      box.style.top = getRandomPercent() + "%";
+      box.style.borderColor = generateColor();
+      box.style.animationDelay = (Math.random() * 10) + "s";
+
+      container.appendChild(box);
+    }
+  }
+
+  generateSquares(10);
+</script>
+</html>

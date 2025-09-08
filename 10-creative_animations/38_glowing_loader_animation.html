@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glowing Loader Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #010f1f;
+    }
+
+    .loader {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+
+    .loader span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(calc(18deg * var(--i)));
+    }
+
+    .loader span:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: #00c3ff;
+      box-shadow: 
+        0 0 10px #00c3ff,
+        0 0 20px #00c3ff,
+        0 0 40px #00c3ff,
+        0 0 60px #00c3ff,
+        0 0 80px #00c3ff,
+        0 0 100px #00c3ff;
+      animation: loading 2s linear infinite both;
+      animation-delay: calc(-0.1s * var(--i));
+    }
+
+    @keyframes loading {
+      0% {
+        transform: scale(1);
+      }
+
+      90% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(0);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <section>
+    <div class="loader"></div>
+  </section>
+</body>
+<script>
+  function createLoaderBullets(items) {
+    const loader = document.querySelector('.loader');
+
+    for(let i = 1; i <= items; i++) {
+      const span = document.createElement('span');
+      span.style.setProperty('--i', i);
+      loader.appendChild(span);
+    }
+  }
+
+  createLoaderBullets(20);
+</script>
+</html>

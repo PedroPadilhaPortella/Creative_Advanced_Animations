@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colorful Liquid Glass Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #222;
+      gap: 40px;
+    }
+
+    .glass {
+     position: relative;
+    }
+
+    .glass .inner {
+      position: relative;
+      width: 200px;
+      height: 400px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 40px;
+      border: 8px solid transparent;
+    }
+
+    .inner:before {
+      content: '';
+      position: absolute;
+      width: 175px;
+      height: 30px;
+      border: 10px solid #444;
+      border-radius: 50%;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 15px 0 #222;
+    }
+
+    .inner:after {
+      content: '';
+      position: absolute;
+      top: 70px;
+      left: 30px;
+      width: 50px;
+      height: 250px;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .glass .inner .liquid {
+      position: absolute;
+      top: 50px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      animation: animateLiquid 4s ease-in-out infinite;
+    }
+
+    .glass .inner .liquid:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      top: -10px;
+      border-radius: 50%;
+      background: var(--effect-color);
+    }
+
+    @keyframes animateLiquid {
+      0%, 20% {
+        top: 50px;
+      }
+
+      50%, 70% {
+        top: 320px;
+      }
+
+      100% {
+        top: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section></section>
+</body>
+
+<script>
+  function generateGlassesByColor(colors) {
+    const container = document.querySelector('section');
+
+    for (let i = 0; i < colors.length; i++) {
+      const glass = document.createElement('div');
+      glass.classList.add('glass');
+
+      const inner = document.createElement('div');
+      inner.classList.add('inner');
+
+      const liquid = document.createElement('div');
+      liquid.classList.add('liquid');
+
+      liquid.style.background = colors[i].backgroundColor;
+      liquid.style.setProperty('--effect-color', colors[i].effectColor);
+      liquid.style.animationDelay = `${i * 2}s`;
+
+      inner.appendChild(liquid);
+      glass.appendChild(inner);
+      container.appendChild(glass);
+    }
+  }
+
+  generateGlassesByColor([
+    { backgroundColor: '#41c1fb', effectColor: '#1fa4e0'  },
+    { backgroundColor: '#ff6b6b', effectColor: '#e63946'  }
+  ]);
+</script>
+</html>

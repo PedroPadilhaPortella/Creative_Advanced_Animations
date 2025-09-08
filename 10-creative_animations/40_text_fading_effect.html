@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Fading Effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #9a0e0e;
+    }
+
+    h2 {
+      position: relative;
+      font-size: 3.7em;
+      color: white;
+      overflow: hidden;
+    }
+
+    h2:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 120%;
+      height: 100%;
+      background-color: #9a0e0e;
+      animation: fade 10s linear infinite;
+    }
+
+    @keyframes fade {
+      0% {
+        left: -20%
+      }
+
+      50% {
+        left: 120%;
+      }
+
+      100% {
+        left: -20%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Text Fading Effect</h2>
+</body>
+</html>
