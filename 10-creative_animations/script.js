@@ -39,6 +39,9 @@ const projects = [
   "38_glowing_loader_animation",
   "39_cloud_rain_drops_animation",
   "40_text_fading_effect",
+  "41_neon_text_reveal_effect",
+  "42_dots_loading_animation",
+  "43_neon_button_effect",
 ];
 
 const capitalize = (word) => {
