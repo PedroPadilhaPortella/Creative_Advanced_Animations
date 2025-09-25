@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moon Animation</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat:500");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #21233c;
+    }
+
+    .container {
+      height: 31em;
+      width: 31em;
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .letter {
+      font-size: 3.5em;
+    }
+
+    .orbit {
+      position: relative;
+      height: 18.75em;
+      width: 18.75em;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: rotate 8s linear infinite;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .orbit p {
+      position: absolute;
+      top: 4.7em;
+      left: 2em;
+    }
+
+    .moon {
+      height: 8em;
+      width: 8em;
+      background-color: #f5f5f5;
+      border-radius: 50%;
+      position: absolute;
+      box-shadow:
+        0 0 0 0.6em rgba(255, 255, 255, 0.05),
+        0 0 0 1.2em rgba(255, 255, 255, 0.05),
+        0 0 0 1.8em rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <p class="letter">M</p>
+    <div class="orbit">
+      <p class="letter">O</p>
+      <div class="moon"></div>
+    </div>
+    <p class="letter">N</p>
+  </div>
+</body>
+</html>
