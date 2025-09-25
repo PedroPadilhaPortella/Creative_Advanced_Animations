@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glassmorphism Animation Effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #020e33;
+    }
+
+    .container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+    }
+
+    .container span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 50%;
+      z-index: 2;
+    }
+
+    .square {
+      background: #ff3e3e;
+      animation: translateObject 4s ease-in-out infinite;
+    }
+
+    .circle {
+      background: #fff;
+      border-radius: 50%;
+      animation: translateObject 4s ease-in-out infinite;
+      animation-delay: -2s;
+    }
+
+    @keyframes translateObject {
+      0% {
+        transform: translate(-150px, 50px) scale(0.4) rotate(0deg);
+        z-index: 1;
+      }
+
+      50% {
+        transform: translate(150px, -50px) scale(0.4) rotate(180deg);
+        z-index: 1;
+      }
+
+      50.0001% {
+        transform: translate(150px, -50px) scale(0.4) rotate(180deg);
+        z-index: 3;
+      }
+
+      100% {
+        transform: translate(-150px, 50px) scale(0.4) rotate(360deg);
+        z-index: 3;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <span class="glass"></span>
+    <span class="square"></span>
+    <span class="circle"></span>
+  </div>
+</body>
+</html>
