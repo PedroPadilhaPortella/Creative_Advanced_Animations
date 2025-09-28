@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fingerprint Scanner Animation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: consolas;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #111;
+    }
+
+    .scanner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .fingerprint {
+      position: relative;
+      width: 380px;
+      height: 380px;
+      background: url(./images/fingerprint.svg);
+      background-repeat: no-repeat;
+      background-size: 380px;
+    }
+
+    .fingerprint:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:url(./images/fingerprint.svg);
+      filter: invert(85%) sepia(91%) saturate(7483%) hue-rotate(180deg) brightness(103%) contrast(101%);
+      background-repeat: no-repeat;
+      background-size: 380px;
+      animation: scanning 4s ease-in-out infinite;
+    }
+
+    @keyframes scanning {
+      0%, 100% {
+        height: 0%;
+      }
+
+      50% {
+        height: 100%;
+      }
+    }
+
+    .fingerprint:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background-color: #4682b4;
+      border-radius: 8px;
+      filter: drop-shadow(0 0 20px #4682b4) drop-shadow(0 0 60px #4682b4);
+      animation: animateLine 4s ease-in-out infinite;
+    }
+
+    @keyframes animateLine {
+      0%, 100% {
+        top: 0;
+      }
+
+      50% {
+        top: 100%;
+      }
+    }
+  
+    .scanner h3 {
+      text-transform: uppercase;
+      font-size: 2em;
+      letter-spacing: 2px;
+      color: #4682b4;
+      filter: drop-shadow(0 0 20px #4682b4) drop-shadow(0 0 60px #4682b4);
+      margin-top: 20px;
+      animation: animateText 1s infinite;
+    }
+
+    @keyframes animateText {
+      0%, 100% {
+        opacity: 0;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="scanner">
+    <div class="fingerprint"></div>
+    <h3 class="loading">scanning...</h3>
+  </div>
+</body>
+</html>

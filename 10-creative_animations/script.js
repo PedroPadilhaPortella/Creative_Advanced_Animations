@@ -44,6 +44,7 @@ const projects = [
   "43_neon_button_effect",
   "44_glassmorphism_animation_effect",
   "45_moon_animation",
+  "46_fingerprint_scanner_animation",
 ];
 
 const capitalize = (word) => {
