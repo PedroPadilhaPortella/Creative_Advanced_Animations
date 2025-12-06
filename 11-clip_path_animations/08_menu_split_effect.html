@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu split effect</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,800);
+
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(236, 236, 236);
+        font-family: 'Raleway', Arial, sans-serif;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      li {
+        position: relative;
+        list-style: none;
+        margin: 10px 0;
+        overflow: hidden;
+      }
+
+      a {
+        position: relative;
+        display: block;
+        text-align: center;
+        margin: 0;
+        padding: 5px 10px;
+        font-size: 60px;
+        font-weight: 900;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: 0.5s;
+        color: transparent;
+      }
+
+      a:before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #262626;
+        box-sizing: border-box;
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        transition: 0.5s;
+        transition-delay: 0.25s;
+      }
+
+      a:after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #262626;
+        box-sizing: border-box;
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        transition: 0.5s;
+        transition-delay: 0.25s;
+      }
+
+      a:hover:before {
+        color: rgb(160, 0, 0);
+        transform: translate(10px, -3px);
+      }
+
+      a:hover::after {
+        color: rgb(160, 0, 0);
+        transform: translate(-10px, 3px);
+      }
+
+      li:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        transform: translateY(-50%);
+        background-color: #262626;
+        left: -100%;
+        transition: 0.5s;
+      }
+
+      li:hover:before {
+        left: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li><a data-text="home" href="#">home</a></li>
+      <li><a data-text="about" href="#">about</a></li>
+      <li><a data-text="services" href="#">services</a></li>
+      <li><a data-text="team" href="#">team</a></li>
+      <li><a data-text="contact" href="#">contact</a></li>
+    </ul>
+  </body>
+</html>
