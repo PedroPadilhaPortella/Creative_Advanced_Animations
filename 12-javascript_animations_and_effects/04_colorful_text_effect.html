@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+    />
+    <title>Colorful text effect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #252839;
+      }
+
+      h2 {
+        position: relative;
+        font-size: 3em;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #fff2;
+      }
+
+      h2 span {
+        position: relative;
+        animation: animateText 1s linear infinite;
+      }
+
+      @keyframes animateText {
+        0%, 20% {
+          color: #fff2;
+        }
+
+        21%, 79% {
+          color: #0f0;
+        }
+
+        80%, 100% {
+          color: #fff2;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2 class="text">colorful text</h2>
+  </body>
+
+  <script>
+    const textEl = document.querySelector("h2.text");
+
+    function styleLetters() {
+      const words = textEl.innerHTML
+        .split('')
+        .map((letter, index) => {
+          return `
+            <span style="
+              animation-duration: ${Math.random() * 5}s;
+              filter: hue-rotate(${index * 50}deg);
+            ">
+              ${letter}
+            </span>
+          `;
+        })
+        .join('');
+
+      textEl.innerHTML = words;
+    }
+
+    styleLetters();
+  </script>
+</html>

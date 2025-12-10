@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+    />
+    <title>Expandable Card</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+            
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0fece1;
+      }
+
+      .card {
+        position: relative;
+        width: 350px;
+        height: 85px;
+        background-color: #192a56;
+        border-radius: 20px;
+        transition: 0.5s;
+      }
+
+      .toggle {
+        position: absolute;
+        width: 70px;
+        height: 60px;
+        bottom: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom-left-radius: 35px;
+        border-bottom-right-radius: 35px;
+        background-color: #192a56;
+        cursor: pointer;
+      }
+
+      .toggle:before {
+        content: '';
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background-color: transparent;
+        left: -34px;
+        border-top-right-radius: 35px;
+        box-shadow: 11px -10px 0 10px #192a56;
+      }
+
+      .toggle:after {
+        content: '';
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        background-color: transparent;
+        right: -34px;
+        border-top-left-radius: 35px;
+        box-shadow: -11px -10px 0 10px #192a56;
+      }
+
+      .toggle span {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-bottom: 3px solid white;
+        border-right: 3px solid white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -70%) rotate(45deg);
+        transition: 0.5s;
+      }
+      
+      .card.expanded  {
+        height: 420px;
+      }
+
+      .card.expanded .toggle span {
+        transform: translate(-50%, -70%) rotate(225deg);
+      }
+
+      .content {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .content-box {
+        position: relative;
+        padding: 20px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+      }
+
+      .content-box h2 {
+        color: white;
+        font-weight: 500;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1.1em;
+      }
+
+      .content-box h2 span {
+        font-size: 0.75em;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+
+      .image-box {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        margin-top: 20px;
+        box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+        border: 5px solid white;
+      }
+
+      .image-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .content button {
+        position: relative;
+        margin-top: 20px;
+        padding: 10px 35px;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 1em;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 500;
+        color: #333;
+        box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="content">
+        <div class="content-box">
+          <h2>Pedro Portella<br><span>Software developer</span></h2>
+          <div class="image-box">
+            <img src="./images//pedro.png" alt="pedro portella">
+          </div>
+          <button>hire me</button>
+        </div>
+      </div>
+      <div class="toggle">
+        <span></span>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const cardEl = document.querySelector('.card');
+    const toggleEl = document.querySelector('.toggle');
+    const buttonEl = document.querySelector('button');
+
+    toggleEl.addEventListener('click', () => {
+      cardEl.classList.toggle('expanded');
+    });
+
+    buttonEl.addEventListener('click', () => {
+      window.open('https://www.linkedin.com/in/pedro-padilha-portella/', '_blank');
+    });
+  </script>
+</html>
