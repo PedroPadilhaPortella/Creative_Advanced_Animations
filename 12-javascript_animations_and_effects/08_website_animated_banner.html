@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Background image on Scroll</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #0d172e;
+      }
+
+      section:before {
+        content: "";
+        position: absolute;
+        width: 30vw;
+        height: 30vw;
+        border: 5vw solid #ff9100;
+        border-radius: 50%;
+        box-shadow: 0 0 0 1vw #0d172e, 0 0 0 1.3vw white;
+      }
+
+      section h2 {
+        position: absolute;
+        font-size: 8vw;
+        color: white;
+        font-weight: 400;
+        text-align: center;
+        line-height: 2em;
+        z-index: 5;
+        transform: skewY(-7deg);
+        text-shadow:
+          1px 1px 0 #ccc,
+          2px 2px 0 #ccc,
+          3px 3px 0 #ccc,
+          4px 4px 0 #ccc,
+          5px 5px 0 #ccc,
+          10px 10px 0px rgba(0, 0, 0, 0.2);
+        animation: floating 5s ease-in-out infinite;
+      }
+
+      section h2 span {
+        font-weight: 700;
+        font-size: 3em;
+        text-shadow: 
+          1px 1px 0 #ccc,
+          2px 2px 0 #ccc,
+          3px 3px 0 #ccc,
+          4px 4px 0 #ccc,
+          5px 5px 0 #ccc,
+          6px 6px 0 #ccc,
+          7px 7px 0 #ccc,
+          8px 8px 0 #ccc,
+          9px 9px 0 #ccc,
+          10px 10px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      section i {
+        position: absolute;
+        background-color: white;
+        border-radius: 50%;
+        box-shadow: 
+          0 0 10px white,
+          0 0 20px white,
+          0 0 40px white,
+          0 0 80px white;
+        animation: shine linear infinite;
+      }
+
+      @keyframes floating {
+        0%,
+        100% {
+          transform: skewY(-7deg) translateY(-20px);
+        }
+
+        50% {
+          transform: skewY(-7deg) translateY(20px);
+        }
+      }
+
+      @keyframes shine {
+        0% {
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        90% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h2>Welcome to our<br /><span>site</span></h2>
+    </section>
+  </body>
+
+  <script>
+    function createStars(starsCount) {
+      const sectionEl = document.querySelector("section");
+
+      let index = 0;
+
+      while (index < starsCount) {
+        let star = document.createElement("i");
+
+        const positionX = Math.floor(Math.random() * window.innerWidth);
+        const positionY = Math.floor(Math.random() * window.innerHeight);
+        const duration = 1 + Math.random() * 2;
+        const size = 1 + Math.random() * 4;
+
+        star.style.left = `${positionX}px`;
+        star.style.top = `${positionY}px`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.animationDuration = `${duration}s`;
+
+        sectionEl.appendChild(star);
+
+        index++;
+      }
+    }
+
+    createStars(200);
+  </script>
+</html>

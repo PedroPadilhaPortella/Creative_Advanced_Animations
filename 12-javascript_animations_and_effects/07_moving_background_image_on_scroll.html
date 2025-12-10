@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Background image on Scroll</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(./images/background.png);
+        background-repeat: repeat;
+        background-size: 700px;
+      }
+      .content {
+        position: relative;
+        width: 1000px;
+        margin: 100px auto;
+        z-index: 1;
+        background: white;
+        padding: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .content h2 {
+        font-size: 2em;
+        margin-top: 20px;
+      }
+
+      .content p {
+        font-size: 1.2em;
+        line-height: 1.6em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="background"></div>
+    <div class="content">
+      <h2>Moving Background image on Scroll</h2>
+    </div>
+  </body>
+
+  <script>
+    let pattern = document.querySelector(".background");
+
+    window.addEventListener("scroll", () => {
+      pattern.style.backgroundPosition = `${window.scrollY}px`;
+    });
+
+    const contentEl = document.querySelector(".content");
+    const PARAGRAPH_COUNT = 50;
+    
+    Array.from({ length: PARAGRAPH_COUNT }).forEach(() => {
+      const paragraphEl = document.createElement("p");
+      paragraphEl.textContent = `
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Voluptatibus ea animi temporibus nobis delectus omnis enim ducimus nihil. 
+        Dolore, distinctio accusamus aspernatur, cumque quisquam amet modi.
+      `;
+      contentEl.appendChild(paragraphEl);
+      contentEl.appendChild(document.createElement("br"));
+    });
+  </script>
+</html>

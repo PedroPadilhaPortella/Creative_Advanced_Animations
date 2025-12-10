@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+    />
+    <title>Website Parallax effect with Javascript</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #f9f9f9;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 30px 100px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        z-index: 100;
+      }
+
+      .logo {
+        font-size: 2em;
+        color: #539381;
+        margin-right: 270px;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: #539381;
+        padding: 6px 15px;
+        border-radius: 20px;
+        margin: 0 10px;
+        font-weight: 600;
+        transition: 0.5s;
+      }
+
+      .navbar a:hover {
+        background-color: #539381;
+        color: #fff;
+      }
+
+      .parallax {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      .parallax img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      h2#text {
+        position: absolute;
+        font-size: 5em;
+        color: white;
+        text-shadow: 2px 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .content {
+        position: relative;
+        background-color: #003329;
+        padding: 100px;
+      }
+
+      .content h2 {
+        font-size: 3em;
+        color: white;
+        margin-bottom: 10px;
+      }
+
+      .content p {
+        font-size: 1em;
+        color: white;
+        font-weight: 300;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h2 class="logo">Logo</h2>
+      <nav class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+    <section class="parallax">
+      <img src="./images/hill1.png" id="hill1">
+      <img src="./images/hill2.png" id="hill2">
+      <img src="./images/hill3.png" id="hill3">
+      <img src="./images/hill4.png" id="hill4">
+      <img src="./images/hill5.png" id="hill5">
+      <img src="./images/tree.png" id="tree">
+      <img src="./images/leaf.png" id="leaf">
+      <img src="./images/plant.png" id="plant">
+      <h2 id="text">Parallax Website</h2>
+    </section>
+    <section class="content">
+      <h2>Parallax Scrolling Website</h2>
+      <p>
+        The parallax effect is a modern web design technique where background elements move at a slower 
+        speed than foreground content as the user scrolls, creating an illusion of depth and immersion.
+        Originally inspired by 2D video games, this effect visually separates layers on a page, 
+        making the browsing experience feel more dynamic and engaging.
+      </p>
+      <p>
+        The parallax effect works through a combination of CSS and JavaScript. Typically, 
+        developers fix the background image while allowing other elements to scroll normally,
+        or they manipulate scroll positions using JavaScript to control how each layer moves.
+        As the viewer scrolls, the difference in speed between layers generates a sense of 
+        motion and perspective. This subtle visual trick transforms a flat webpage into a more 
+        interactive and memorable environment.
+      </p>
+      <p>
+        When used thoughtfully, the parallax effect improves how a website is presented to the client in several ways. 
+        First, it enhances storytelling: brands can guide visitors through a narrative journey as sections reveal 
+        themselves smoothly. Second, it increases visual appeal by adding sophistication and polish, 
+        making the site feel modern and professional. Finally, it helps retain user attention, 
+        as the engaging motion encourages visitors to continue scrolling and exploring. 
+        Although it should be used sparingly to avoid performance issues, the parallax effect—when properly 
+        implemented—can significantly elevate the overall user experience and leave a strong impression on clients.
+      </p>
+    </section>
+  </body>
+
+  <script>
+    const textEl = document.getElementById("text");
+    const leafEl = document.getElementById("leaf");
+    const hill1El = document.getElementById("hill1");
+    const hill4El = document.getElementById("hill4");
+    const hill5El = document.getElementById("hill5");
+
+    window.addEventListener('scroll', () => {
+      let value = window.scrollY;
+
+      textEl.style.marginTop = `${value * 2.5}px`;
+
+      leafEl.style.top = `${value * -1.5}px`;
+      leafEl.style.left = `${value * 1.5}px`;
+
+      hill5El.style.left = `${value * 1.5}px`;
+
+      hill4El.style.left = `${value * -1.5}px`;
+
+      hill1El.style.top = `${value * 1}px`;
+    });
+  </script>
+</html>

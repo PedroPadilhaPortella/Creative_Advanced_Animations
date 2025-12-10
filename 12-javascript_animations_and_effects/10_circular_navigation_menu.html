@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Navigation Menu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(45deg, #8460ed, #ff1252);
+      }
+
+      .container {
+        width: 270px;
+        height: 270px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .container .toggle {
+        width: 70px;
+        height: 70px;
+        background: white;
+        border-radius: 50%;
+        color: #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 20;
+        transition: 0.3s;
+      }
+
+      .container.active .toggle {
+        transform: rotate(45deg);
+      }
+
+      .container .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .container .menu li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        transform: rotate(calc(360deg / 6 * var(--i)));
+      }
+
+      .container .menu li a {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #222;
+        font-size: 22px;
+        background: white;
+        pointer-events: visible;
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+
+      .container.active .menu li a {
+        top: 0;
+        transform: translate(-50%, -50%) rotate(calc(-360deg / 6 * var(--i)));
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="toggle">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </div>
+
+      <ul class="menu"></ul>
+    </div>
+  </body>
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <script>
+    const containerEl = document.querySelector(".container");
+    const toggleEl = document.querySelector(".toggle");
+
+    createCircularMenuItems();
+
+    toggleEl.addEventListener("click", () => {
+      containerEl.classList.toggle("active");
+    });
+
+    function createCircularMenuItems() {
+      const menuEl = document.querySelector('.menu');
+
+      const items = ['home-outline', 'camera-outline', 'person-outline', 'airplane-outline', 'mail-outline', 'key-outline'];
+
+      items.forEach((iconName, index) => {
+        const ionIcon = document.createElement('ion-icon');
+        ionIcon.name = iconName;
+
+        const anchorEl = document.createElement('a');
+        anchorEl.href = '#';
+
+        const listItemEl = document.createElement('li');
+        listItemEl.style.setProperty('--i', index + 1);
+
+        anchorEl.appendChild(ionIcon);
+        listItemEl.appendChild(anchorEl);
+        menuEl.appendChild(listItemEl);
+      });
+    }
+  </script>
+</html>
