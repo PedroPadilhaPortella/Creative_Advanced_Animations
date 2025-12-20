@@ -9,6 +9,14 @@ const projects = [
   "08_website_animated_banner",
   "09_night_mode_road_animation",
   "10_circular_navigation_menu",
+  "11_navigation_tab_animation",
+  "12_skew_on_scroll_effect",
+  "13_video_slider_using_javascript",
+  "14_glitch_effect_with_javascript",
+  "15_split_screen_on_screen_scroll",
+  "16_toggle_action_menu",
+  "17_dots_toggle_menu",
+  "18_wavy_text_animation_effect",
 ];
 
 const capitalize = (word) => {

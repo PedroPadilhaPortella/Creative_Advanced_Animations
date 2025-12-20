@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dots Toggle Menu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0f296d;
+      }
+
+      .navigation {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        background-color: #c22c15;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+        transition-delay: 0.8s;
+      }
+
+      .navigation.expanded {
+        width: 200px;
+        height: 200px;
+        transition-delay: 0s;
+      }
+
+      .navigation span {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        background-color: white;
+        border-radius: 50%;
+        transform: translate(calc(14px * var(--x)), calc(14px * var(--y)));
+        transition: 0.5s;
+        transition-delay: calc(0.1s * var(--i));
+      }
+
+      .navigation.expanded span {
+        width: 45px;
+        height: 45px;
+        background-color: #0f296d;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+      }
+
+      .navigation span ion-icon {
+        font-size: 0em;
+        transition: 0.5s;
+      }
+
+      .navigation.expanded span ion-icon {
+        font-size: 1.35em;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navigation"></div>
+  </body>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+   const navigation = document.querySelector(".navigation");
+
+    navigation.addEventListener("click", () => {
+      navigation.classList.toggle("expanded");
+    });
+
+    createIcons();
+
+    function createIcons() {
+      const icons = [
+        { name: "battery-half-outline" },
+        { name: "bluetooth-outline" },
+        { name: "camera-outline" },
+        { name: "settings-outline" },
+        { name: "wifi-outline" },
+        { name: "logo-whatsapp" },
+        { name: "logo-youtube" },
+        { name: "logo-facebook" },
+        { name: "map-outline" },
+      ]
+      const SIZE = 3;
+      let itemPosition = 0;
+      
+      for (let y = -1; y <= 1; y++) {
+        for (let x = -1; x <= 1; x++) {
+          const span = document.createElement("span");
+
+          span.style.setProperty("--y", y);
+          span.style.setProperty("--x", x);
+          span.style.setProperty("--i", itemPosition);
+
+          const ionIcon = document.createElement('ion-icon');
+          ionIcon.name = icons[itemPosition].name;
+
+          span.appendChild(ionIcon);
+          navigation.appendChild(span);
+          itemPosition++;
+        }
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+    />
+    <title>Split screen on screen scroll</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 240vh;
+      }
+
+      section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 100;
+        pointer-events: none;
+      }
+
+      .side {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(./images/nuts.jpg);
+        background-size: cover;
+      }
+
+      .side1 {
+        clip-path: polygon(0% 0%, 60% 0%, 40% 10%, 60% 20%, 40% 30%, 60% 40%, 40% 50%, 60% 60%, 40% 70%, 60% 80%, 40% 90%, 60% 100%, 0% 100%);
+      }
+
+      .side2 {
+        clip-path: polygon(100% 0%, 60% 0%, 40% 10%, 60% 20%, 40% 30%, 60% 40%, 40% 50%, 60% 60%, 40% 70%, 60% 80%, 40% 90%, 60% 100%, 100% 100%);
+      }
+
+      .content {
+        background-color: #222;
+        color: white;
+        padding: 120px;
+        padding-top: 150vh;
+      }
+
+      .content h2 {
+        position: relative;
+        font-size: 4em;
+      }
+
+      .content h3 {
+        position: relative;
+        font-size: 2em;
+        margin-top: 20px;
+      }
+
+      .content p {
+        position: relative;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <div class="side side1"></div>
+      <div class="side side2"></div>
+    </section>
+    <div class="content">
+      <h2>Nuts: Small Foods with Big Benefits</h2>
+      <p>
+        Nuts are nutrient-dense foods that have been part of the human diet for
+        thousands of years. Despite their small size, they are rich in healthy
+        fats, protein, vitamins, and minerals, making them an excellent addition
+        to a balanced diet.
+      </p>
+      <h3>Brazil Nuts</h3>
+      <p>
+        Brazilian nuts, also known as Brazil nuts, are native to the Amazon
+        rainforest. They are especially famous for their extremely high selenium
+        content, a mineral that plays a key role in thyroid function and
+        supports the immune system. Just one or two Brazil nuts per day can
+        provide the recommended daily intake of selenium.
+      </p>
+      <h3>Other Popular Nuts</h3>
+      <p>
+        Almonds are rich in vitamin E and are known to support skin and heart
+        health. Walnuts contain omega-3 fatty acids, which help reduce
+        inflammation and support brain function. Cashews provide important
+        minerals such as magnesium and zinc, contributing to bone and muscle
+        health.
+      </p>
+      <h3>Health Benefits</h3>
+      <p>
+        Regular consumption of nuts has been linked to improved heart health,
+        better cholesterol levels, and reduced risk of chronic diseases.
+        Although nuts are calorie-dense, they promote satiety and can help with
+        weight management when eaten in moderation.
+      </p>
+      <p>
+        In conclusion, nuts such as Brazilian nuts, almonds, walnuts, and
+        cashews are powerful natural foods. When consumed responsibly, they
+        offer a wide range of health benefits and add both nutrition and flavor
+        to everyday meals.
+      </p>
+    </div>
+  </body>
+
+  <script>
+    const side1 = document.querySelector(".side1");
+    const side2 = document.querySelector(".side2");
+
+    window.addEventListener("scroll", () => {
+      side1.style.left = `${-window.scrollY}px`;
+      side2.style.left = `${window.scrollY}px`;
+    });
+  </script>
+</html>

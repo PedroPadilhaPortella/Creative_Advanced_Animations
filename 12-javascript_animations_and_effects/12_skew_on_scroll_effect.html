@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skew on Scroll Effect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+       height: 200vh;
+       background-color: white;
+      }
+
+      section {
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: url(./images/background_castle.jpg);
+      }
+
+      section .skewed {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        transform: skewY(-10deg);
+        transform-origin: top left;
+      }
+
+    </style>
+  </head>
+
+  <body>
+   <section>
+    <span class="skewed"></span>
+   </section>
+  </body>
+
+  <script>
+    const skewed = document.querySelector('.skewed');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = -10 + window.scrollY / 6;
+      skewed.style.transform = `skewY(${scrollY}deg)`;
+    });
+  </script>
+</html>

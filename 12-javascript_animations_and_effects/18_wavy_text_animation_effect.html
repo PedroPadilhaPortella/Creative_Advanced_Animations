@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900">
+    <title>Wavy Text Animation Effect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Roboto', sans-serif;
+      }
+
+      section {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #111;
+      }
+
+      h2.text {
+        color: #fff;
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+
+      .text span {
+        position: relative;
+        display: inline-block;
+        animation: wave 3s ease-in-out infinite;
+      }
+
+      @keyframes wave {
+        0% {
+          transform: translateY(0px);
+        }
+
+        25% {
+          transform: translateY(-100px);
+        }
+
+        50% {
+          transform: translateY(0px);
+        }
+
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h2 class="text">Wavy Text Animation Effect</h2>
+    </section>
+  </body>
+
+  <script>
+    const textEl = document.querySelector(".text");
+
+    styleLetters();
+
+    function styleLetters() {
+      const words = textEl.textContent
+        .split('')
+        .map((letter, index) => {
+          return `
+            <span style="animation-delay: ${index * 70}ms;">
+              ${letter}
+            </span>
+          `;
+        })
+        .join('');
+  
+      textEl.innerHTML = words;
+    }
+  </script>
+</html>

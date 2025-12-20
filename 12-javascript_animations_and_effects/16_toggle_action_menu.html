@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
+    />
+    <title>Toggle Action Menu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #222;
+      }
+
+      .menu {
+        display: flex;
+        gap: 6px;
+      }
+
+      .menu .user {
+        position: relative;
+        height: 70px;
+        padding: 10px;
+        background-color: white;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+      }
+
+      .menu .user .image-box {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .menu .user .image-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: circle(50% at 50% 50%);
+      }
+
+      .menu .user .details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .menu .user .details h3 {
+        font-weight: 600;
+        line-height: 1.1em;
+      }
+
+      .menu .user .details p {
+        font-weight: 500;
+        font-size: 0.8em;
+        color: rgba(0, 0, 0, 0.6);
+      }
+
+      .navigation {
+        position: relative;
+        width: 40px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      .navigation span {
+        /*try remove this and add flex-direction row above  */
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background-color: #222;
+        line-height: 5px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+      }
+
+      .navigation span a {
+        font-size: 0em;
+        color: white;
+      }
+
+      .navigation span:nth-child(1) {
+        transform: translateY(-12px);
+      }
+
+      .navigation span:nth-child(3) {
+        transform: translateY(12px);
+      }
+
+      .navigation.active {
+        width: 200px;
+      }
+
+      .navigation.active span {
+        width: 50px;
+        height: 50px;
+        transition: 0.5s;
+      }
+
+      .navigation.active span:nth-child(1) {
+        transform: translateX(-60px);
+      }
+
+      .navigation.active span:nth-child(3) {
+        transform: translateX(60px);
+      }
+
+      .navigation.active span a {
+        font-size: 1.25em;
+      }
+
+      .navigation.active span:hover {
+        background-color: #273c75;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="menu">
+      <div class="user">
+        <div class="image-box">
+          <img src="./images/pedro.png">
+        </div>
+        <div class="details">
+          <h3>Pedro Portella</h3>
+          <p>Web Developer</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <span>
+          <a href="#">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </span>
+        <span>
+          <a href="#">
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
+        </span>
+        <span>
+          <a href="#">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </a>
+        </span>
+      </div>
+    </div>
+  </body>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    const navigation = document.querySelector(".navigation");
+
+    navigation.addEventListener("click", () => {
+      navigation.classList.toggle("active");
+    });
+  </script>
+</html>

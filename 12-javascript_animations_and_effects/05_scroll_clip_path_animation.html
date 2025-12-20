@@ -80,7 +80,6 @@
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-      console.warn(scrollY);
       circle1El.style.clipPath = `circle(${150 + scrollY * 0.75}px at 0 0)`;
       circle2El.style.clipPath = `circle(${150 + scrollY * 0.75}px at 100% 100%)`;
     });
